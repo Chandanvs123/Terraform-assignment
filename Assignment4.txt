@@ -1,0 +1,55 @@
+4a: To test connectivity and make sure all RDS instances are healthy and running as expected.
+  
+describe-db-instances
+[--db-instance-identifier <value>]
+[--filters <value>]
+[--cli-input-json <value>]
+[--starting-token <value>]
+[--page-size <value>]
+[--max-items <value>]
+[--generate-cli-skeleton <value>]
+
+aws rds describe-db-instances ^
+  --filters "Name=engine,Values=mysql" ^                  
+  --query "*[].[DBInstanceIdentifier,Endpoint.Address,Endpoint.Port,MasterUsername]"
+
+
+
+4b: To run a set of SQL commands on one or a set of RDS instances.
+//
+execute-sql
+--aws-secret-store-arn <value>
+[--database <value>]
+--db-cluster-or-instance-arn <value>
+[--schema <value>]
+--sql-statements <value>
+[--cli-input-json <value>]
+[--generate-cli-skeleton <value>]
+//
+
+//
+POST /ExecuteSql HTTP/1.1
+Content-type: application/json
+
+{
+   "awsSecretStoreArn": "string",
+   "database": "string",
+   "dbClusterOrInstanceArn": "string",
+   "schema": "string",
+   "sqlStatements": "string"
+}
+//
+
+//
+batch-execute-statement
+[--database <value>]
+[--parameter-sets <value>]
+--resource-arn <value>
+[--schema <value>]
+--secret-arn <value>
+--sql <value>
+[--transaction-id <value>]
+[--cli-input-json <value>]
+[--generate-cli-skeleton <value>]
+//
+
