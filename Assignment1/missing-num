@@ -1,0 +1,10 @@
+#Find a missing number from n consecutive numbers 
+num=int(input("Enter numbers"))
+def find_missing():
+	max_number=num[-1]
+	num_len=num.length()
+  result=(num_len(num_length+1))/2
+  updated_r=(max_number(max_number+1))/2
+  if (result != updated_r):
+  	missing_num=updated_r-result
+  return missing_num
